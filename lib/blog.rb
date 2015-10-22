@@ -1,5 +1,6 @@
 require "pry"
 require_relative "post.rb"
+require_relative "sponsoredpost.rb"
 
 class Blog
 	attr_reader :posts
@@ -8,8 +9,12 @@ class Blog
 		@posts = []
 	end
 
-	def add_post(title, content)
-		@posts << Post.new(title, content)
+	def add_post(post)
+		@posts << post
+	end
+
+	def add_sponsored_post(sponsored_post)
+		@posts << sponsored_post
 	end
 
 	def order_posts
@@ -31,3 +36,4 @@ class Blog
 	end
 
 end
+

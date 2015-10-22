@@ -1,6 +1,6 @@
 class Post
-	attr_accessor :title, :content
-	attr_reader :date, :id
+	attr_accessor :title, :content, :current_id
+	attr_reader :date, :sponsored, :id
 	@@current_id = 1
 
 	def initialize (title, content)
@@ -9,11 +9,7 @@ class Post
 		@date = Time.now
 		@id = @@current_id
         @@current_id += 1
+        @sponsored= false
 	end
-
-end
-
-class SponsoredPost <Post
-
 
 end

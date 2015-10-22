@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Iron blog</title>
+	<link rel="stylesheet" type="text/css" href="file.css">
+</head>
+<body>
+	<body>
+	<header class="top_down_page"><h1 class="element">Iron Blog</h1></header>
+	<article>
+
+		<aside class="right">
+			<h1 style = "text-align: center">Regular posts</h1>
+			<ul>
+				<% @posts.each do |post| %>
+					<% if post.sponsored == false %>
+					<li> Id: <%= post.id %> - <%= post.title %> <br>
+					**************************<br>
+					<%= post.content %><hr></li> 
+				<% end %>
+				<% end %>
+			</ul>
+		</aside>
+
+		<main class="left">
+			<h1 style = "text-align: center">Sponsored posts</h1>
+			<ul>
+				<% @posts.each do |post| %>
+					<% if post.sponsored == true %>
+					<li> Id: <%= post.id %> - **** <%= post.title %> **** <br>
+					**************************<br>
+					<%= post.content %><hr></li> 
+				<% end %>
+				<% end %>
+			</ul>
+		</main>
+
+		<hr>
+		
+		<section class="downsection">
+			<form action="/submit_post" method="POST">
+			<fieldset>
+    		<legend>Create a new regular post:</legend>
+				Title:<br>
+				<input type="text" placeholder="Title of the post" name="title"> <br>
+				Message:<br>
+				<textarea cols="50" rows="4" placeholder="all the content you want to store on the post" name="content"></textarea><br>
+				<button type="submit">New post</button>
+				</fieldset>
+			</form>
+
+			<form action="/submit_sponsored_post" method="POST">
+			<fieldset>
+    		<legend>Create a new <strong>SPONSORED</strong> post:</legend>
+				Title:<br>
+				<input type="text" placeholder="Title of the post" name="title"> <br>
+				Message:<br>
+				<textarea cols="50" rows="4" placeholder="all the content you want to store on the post" name="content"></textarea><br>
+				<button type="submit">New post</button>
+				</fieldset>
+			</form>
+		</section>
+		
+	</article>
+	<footer class="top_down_page"><p class="element">Alejandro Martín 2015 | All rights reserved</p></footer>
+</body>
+</html>
+</body>
+</html>
